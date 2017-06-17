@@ -21,16 +21,13 @@
 #pole1{
 	position:absolute;
 	top:-200px; //height of sum of discs
-	left: 30px; //length of largest disc
 }
 
 #pole2{
-	left: 95px; 
 	position:absolute;
 	top:-200px;
 }
 #pole3{
-	left: 200px;;
 	position:absolute;
 	top:-200px;
 }
@@ -43,6 +40,7 @@
 }
 
 .disc{
+	display: flex;
 	height: 15px;
 	z-index:2;
 	border-radius: 5px;
