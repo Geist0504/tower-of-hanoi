@@ -1,13 +1,14 @@
 .platform{
 	@extend %alignment;
 	margin-top: 300px;
+	display: none;
 }
 
 #base {
 	width: 250px; //3x largest disc width discs
 	height: 20px;
 	background: brown;
-	position: absolute;
+	position: relative;
 }
 
 .pole{
@@ -18,33 +19,37 @@
 }
 
 #pole1{
-	position:relative;
+	position:absolute;
 	top:-200px; //height of sum of discs
 	left: 30px; //length of largest disc
 }
 
 #pole2{
 	left: 95px; 
-	position:relative;
-	top:-420px;
+	position:absolute;
+	top:-200px;
 }
 #pole3{
 	left: 200px;;
-	position:relative;
-	top:-420px;
+	position:absolute;
+	top:-200px;
+}
+
+.discs{
+	@extend %alignment;
+	-webkit-flex-flow: column wrap;
+  	flex-flow: column wrap;
+  	justify-content: flex-start;
 }
 
 .disc{
-	min-width: 20px;
-	max-width: 40px;
 	height: 15px;
 	z-index:2;
-	border-radius: 3px;
+	border-radius: 5px;
 	background: green;
+	position: relative;
 }
 
 #disc1{
 	position: relative;
-	top: -215px;
-	left: 15px;
 }

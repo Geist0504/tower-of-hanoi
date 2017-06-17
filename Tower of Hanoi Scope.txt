@@ -10,11 +10,11 @@ HTML:
 	drop down menu ---CHECK
 	options 5-->10 ---CHECK
 --Three prong set up
-	height scales with overall number of rings (1 height higher than total stack)
-	width and separation scales with overall number of rings
+	height scales with overall number of rings (1 height higher than total stack) ---CHECK
+	width and separation scales with overall number of rings ---CHECK
 -- Rings 
 	Proportional increases in width
-	uniform height
+	uniform height ---CHECK
 
 CSS:
 	Plan background
