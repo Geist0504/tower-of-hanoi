@@ -7,8 +7,8 @@ Challenges:
 HTML:
 
 ---Opens on user selection
-	drop down menu
-	options 5-->10
+	drop down menu ---CHECK
+	options 5-->10 ---CHECK
 --Three prong set up
 	height scales with overall number of rings (1 height higher than total stack)
 	width and separation scales with overall number of rings

@@ -1,0 +1,50 @@
+.platform{
+	@extend %alignment;
+	margin-top: 300px;
+}
+
+#base {
+	width: 250px; //3x largest disc width discs
+	height: 20px;
+	background: brown;
+	position: absolute;
+}
+
+.pole{
+	width: 10px;
+	height: 200px;
+	background: brown;
+	display: inline-block;
+}
+
+#pole1{
+	position:relative;
+	top:-200px; //height of sum of discs
+	left: 30px; //length of largest disc
+}
+
+#pole2{
+	left: 95px; 
+	position:relative;
+	top:-420px;
+}
+#pole3{
+	left: 200px;;
+	position:relative;
+	top:-420px;
+}
+
+.disc{
+	min-width: 20px;
+	max-width: 40px;
+	height: 15px;
+	z-index:2;
+	border-radius: 3px;
+	background: green;
+}
+
+#disc1{
+	position: relative;
+	top: -215px;
+	left: 15px;
+}
