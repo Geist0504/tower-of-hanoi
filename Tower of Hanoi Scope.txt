@@ -1,0 +1,47 @@
+Tower of Hanoi Scope
+
+Challenges:
+-Use Sass
+--mobile responsiveness
+
+HTML:
+
+---Opens on user selection
+	drop down menu
+	options 5-->10
+--Three prong set up
+	height scales with overall number of rings (1 height higher than total stack)
+	width and separation scales with overall number of rings
+-- Rings 
+	Proportional increases in width
+	uniform height
+
+CSS:
+	Plan background
+	thematic color scheme that changes based on number
+	animation, enter from top onto pole
+	animation for movement, up, over to target, down
+
+
+JS
+	Create the board
+		establish variables of platform height and width
+
+	Variables to track
+		stack bottom (how far down a pole should a disc move)
+		stack midpoint (how far over should a disc move)?
+	Data structure for location?
+	What do we need to know about rings? (Arrays with Objects)
+		location
+		size
+		their orientation to the on the board
+
+	Speed up
+	reset button
+
+	Solver algorithim
+
+
+	Each pole will be an object containing:
+		horizontal midpoint
+		verticle bottom
