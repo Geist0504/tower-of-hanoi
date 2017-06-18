@@ -105,7 +105,9 @@ table {
   z-index: 2;
   border-radius: 5px;
   background: green;
-  position: relative; }
+  position: relative;
+  webkit-box-shadow: inset 5px 5px 5px #777;
+  box-shadow: inset 5px 5px 5px #777; }
 
 #disc0 {
   background: #00a018; }

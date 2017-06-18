@@ -46,6 +46,8 @@
 	border-radius: 5px;
 	background: green;
 	position: relative;
+	webkit-box-shadow: inset 5px 5px 5px #777;
+	box-shadow: inset 5px 5px 5px #777;
 }
 
 $i:0;
