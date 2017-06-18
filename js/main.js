@@ -5,7 +5,7 @@ let towerWidth = 10;
 const DISCHEIGHT = 15;
 let discs =[];
 let MAXSTACKHEIGHT = 0;
-const ANIMATIONTIME = 100;
+let ANIMATIONTIME = 500;
 
 function pole(height, left, stackHeight) {
     this.height = height;
@@ -41,22 +41,33 @@ $(document).ready(function(){
 		setDisc(maxDisc, discs);
 	})
 	
-	$('.btn-test').click(function(){
+	$('.solve').click(function(){
 		var gen = tower(maxDisc-1,poles[2],poles[1], poles[0], discs);
+		iterate(gen, interval);
 		var interval = setInterval(function(){
-			iterate(gen)}, 500);
-	})
+			iterate(gen, interval)}, ANIMATIONTIME*3.2);
+		$('.speed').click(function(interval){
+			clearInterval(interval);
+			ANIMATIONTIME = 50;
+			interval = setInterval(function(){
+			iterate(gen, interval)}, ANIMATIONTIME*3.5);
 
+		})
+	})
+	$('.reset').click(function(){
+		reset();
+	})
 });
 
-function iterate(gen) {
-	console.log('next');
-    gen.next();
+function iterate(gen, interval) {
+	if(gen.next().done === true){
+		clearInterval(interval);
+	}
 }
 
 function *tower(discNum, source, destination, spare, discs){
 	let discObj = discs[discNum];
-	console.log('Disc: '+ discNum, 'Source: ' + source.id, 'destination: ' + destination.id, 'spare: '+ spare.id);
+	//console.log('Disc: '+ discNum, 'Source: ' + source.id, 'destination: ' + destination.id, 'spare: '+ spare.id);
 	if(discObj.id === 0){
 		animateDisc(discs[discObj.id], source, destination);
 		yield;
@@ -88,6 +99,9 @@ function *tower(discNum, source, destination, spare, discs){
 function setPlatform(maxDisc, poles){
 	maxDiscWidth = DISCWIDTH + (maxDisc*10);
 	MAXSTACKHEIGHT = DISCHEIGHT*maxDisc;
+	$('.dropdown').css('display', 'none');
+	$('.after').addClass('btn');
+	$('.after').css('display', 'flex')
 	$(".platform").css('display', 'flex');
 	$('#base').css('width', maxDiscWidth*3 + 'px');
 	let poleHeight = maxDisc * DISCHEIGHT + DISCHEIGHT;
@@ -102,6 +116,8 @@ function setPlatform(maxDisc, poles){
 	$('.pole').css('height', poleHeight +'px');
 	$('.pole').css('top', -poleHeight +'px');
 	poles[2].stackHeight = poleHeight - DISCHEIGHT;
+	poles[0].stackHeight = 0;
+	poles[1].stackHeight = 0;
 }
 
 function setDisc(maxDisc, discs){
@@ -140,7 +156,7 @@ function animateDisc(disc, currentPole, targetPole){
 	let id = targetPole.id;
 	let descend = lift + MAXSTACKHEIGHT+ (3*DISCHEIGHT) + ((maxDisc-discID-1)*DISCHEIGHT) - targetPole.stackHeight;
 	let shift = maxDiscWidth*(id-2);
-	console.log('Disc: '+ disc.id, 'Target: ' + id, 'Lift: ' + lift, 'shift: '+ shift, 'desc: '+ descend, 'current height: '+ currentPole.stackHeight, 'target height: '+ targetPole.stackHeight);
+	//console.log('Disc: '+ disc.id, 'Target: ' + id, 'Lift: ' + lift, 'shift: '+ shift, 'desc: '+ descend, 'current height: '+ currentPole.stackHeight, 'target height: '+ targetPole.stackHeight);
 
 	return $('#disc'+disc.id).animate({
 		top: lift
@@ -158,4 +174,13 @@ function animateDisc(disc, currentPole, targetPole){
 		})
 	}).promise();
 
+}
+
+function reset(){
+	$('.disc').remove();
+	$('.after').removeClass('btn');
+	$('.after').css('display', 'none')
+	$(".platform").css('display', 'none');
+	$('.dropdown').css('display', 'flex');
+	ANIMATIONTIME = 500;
 }

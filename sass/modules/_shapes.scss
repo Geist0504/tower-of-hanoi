@@ -48,6 +48,14 @@
 	position: relative;
 }
 
+$i:0;
+
+@each $color in $disc_colors{
+		#disc#{$i}{
+		background: $color;
+		$i: $i +1
+	}
+	}
 #disc1{
 	position: relative;
 }

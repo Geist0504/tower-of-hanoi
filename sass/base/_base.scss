@@ -62,9 +62,13 @@ table {
 }
 .main{
   @extend %alignment;
-
+  margin-top: 20px;
 }
 
 .dropdown{
   max-width: 50%;
+}
+
+.after{
+  display: none;
 }

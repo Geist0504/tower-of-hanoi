@@ -1,0 +1,13 @@
+$green: #00a018;
+
+$base : $green;
+$complement: complement($base);
+$invert: invert($complement);
+$base-dark: darken($base, 5);
+$complement-dark: darken($complement, 5);
+$invert-dark: darken($invert, 5);
+$base-light: lighten($base, 5);
+$complement-light: lighten($complement, 5);
+$invert-light: lighten($invert, 5);
+
+$disc_colors: $base $complement $invert $base-dark $complement-dark $invert-dark $base-light $complement-light $invert-light

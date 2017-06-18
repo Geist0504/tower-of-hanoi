@@ -57,8 +57,14 @@ table {
   align-items: center;
   justify-content: center; }
 
+.main {
+  margin-top: 20px; }
+
 .dropdown {
   max-width: 50%; }
+
+.after {
+  display: none; }
 
 .platform {
   margin-top: 300px;
@@ -100,6 +106,33 @@ table {
   border-radius: 5px;
   background: green;
   position: relative; }
+
+#disc0 {
+  background: #00a018; }
+
+#disc1 {
+  background: #a00088; }
+
+#disc2 {
+  background: #5fff77; }
+
+#disc3 {
+  background: #008714; }
+
+#disc4 {
+  background: #870072; }
+
+#disc5 {
+  background: #46ff61; }
+
+#disc6 {
+  background: #00ba1c; }
+
+#disc7 {
+  background: #ba009e; }
+
+#disc8 {
+  background: #79ff8d; }
 
 #disc1 {
   position: relative; }
