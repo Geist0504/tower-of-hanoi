@@ -34,7 +34,7 @@ JS
 		margin offeset property
 		current height property
 		ring orientation and win test
-	What do we need to know about rings? (Arrays with Objects)
+	What do we need to know about ring? (Arrays with Objects)
 		location
 		size
 		their orientation to the on the board
@@ -45,6 +45,6 @@ TO-DO
 	reset button
 	Colors --- CHECK
 	fade selector away ---CHECK
-
+	Platform too close to buttonrs on
 	Solver algorithim ---CHECK
 

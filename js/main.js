@@ -1,7 +1,7 @@
 const DISCWIDTH = 30;
 let maxDisc = 5;
 let maxDiscWidth = DISCWIDTH*maxDisc;
-let towerWidth = 10;
+const towerWidth = 10;
 const DISCHEIGHT = 15;
 let discs =[];
 let MAXSTACKHEIGHT = 0;
@@ -54,8 +54,8 @@ $(document).ready(function(){
 
 		})
 	})
-	$('.reset').click(function(){
-		reset();
+	$('.reset').click(function(interval){
+		reset(interval);
 	})
 });
 
@@ -150,13 +150,18 @@ function setDisc(maxDisc, discs){
 function animateDisc(disc, currentPole, targetPole){
 
 	//move disc up to above current pole
+	const heightToPlatform = -MAXSTACKHEIGHT - 20;
 	let discID = disc.id;
 	let maxDisc = MAXSTACKHEIGHT/15;
-	let lift = disc.top - (MAXSTACKHEIGHT) - (3*DISCHEIGHT);
+	let lift = heightToPlatform - (3*DISCHEIGHT) - (DISCHEIGHT*discID);
+	//let lift = heightToPlatform - (MAXSTACKHEIGHT) - (3*DISCHEIGHT);
 	let id = targetPole.id;
-	let descend = lift + MAXSTACKHEIGHT+ (3*DISCHEIGHT) + ((maxDisc-discID-1)*DISCHEIGHT) - targetPole.stackHeight;
+	//let descend = lift + MAXSTACKHEIGHT+ (3*DISCHEIGHT) + ((maxDisc-discID-1)*DISCHEIGHT) - targetPole.stackHeight;
+	let change = ((((MAXSTACKHEIGHT-targetPole.stackHeight)/15-(discID+1)))*DISCHEIGHT);
+	let descend = heightToPlatform + change;
+	// + (((MAXSTACKHEIGHT-targetPole.stackHeight-15)/15)*DISCHEIGHT);
 	let shift = maxDiscWidth*(id-2);
-	//console.log('Disc: '+ disc.id, 'Target: ' + id, 'Lift: ' + lift, 'shift: '+ shift, 'desc: '+ descend, 'current height: '+ currentPole.stackHeight, 'target height: '+ targetPole.stackHeight);
+	console.log('MAXSTACK: '+ MAXSTACKHEIGHT, 'heightToPlatform: ' + heightToPlatform, 'Change: ' + change, 'Lift: ' + lift, 'shift: '+ shift, 'desc: '+ descend, 'current height: '+ currentPole.stackHeight, 'target height: '+ targetPole.stackHeight);
 
 	return $('#disc'+disc.id).animate({
 		top: lift
@@ -176,11 +181,12 @@ function animateDisc(disc, currentPole, targetPole){
 
 }
 
-function reset(){
+function reset(interval){
 	$('.disc').remove();
 	$('.after').removeClass('btn');
 	$('.after').css('display', 'none')
 	$(".platform").css('display', 'none');
 	$('.dropdown').css('display', 'flex');
+	clearInterval(interval);
 	ANIMATIONTIME = 500;
 }
