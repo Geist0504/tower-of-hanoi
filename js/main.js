@@ -6,6 +6,7 @@ const DISCHEIGHT = 15;
 let discs =[];
 let MAXSTACKHEIGHT = 0;
 let ANIMATIONTIME = 500;
+let interval;
 
 function pole(height, left, stackHeight) {
     this.height = height;
@@ -156,10 +157,8 @@ function animateDisc(disc, currentPole, targetPole){
 	let lift = heightToPlatform - (3*DISCHEIGHT) - (DISCHEIGHT*discID);
 	//let lift = heightToPlatform - (MAXSTACKHEIGHT) - (3*DISCHEIGHT);
 	let id = targetPole.id;
-	//let descend = lift + MAXSTACKHEIGHT+ (3*DISCHEIGHT) + ((maxDisc-discID-1)*DISCHEIGHT) - targetPole.stackHeight;
-	let change = ((((MAXSTACKHEIGHT-targetPole.stackHeight)/15-(discID+1)))*DISCHEIGHT);
+	let change = ((((MAXSTACKHEIGHT-targetPole.stackHeight)/DISCHEIGHT-(discID+1)))*DISCHEIGHT);
 	let descend = heightToPlatform + change;
-	// + (((MAXSTACKHEIGHT-targetPole.stackHeight-15)/15)*DISCHEIGHT);
 	let shift = maxDiscWidth*(id-2);
 	console.log('MAXSTACK: '+ MAXSTACKHEIGHT, 'heightToPlatform: ' + heightToPlatform, 'Change: ' + change, 'Lift: ' + lift, 'shift: '+ shift, 'desc: '+ descend, 'current height: '+ currentPole.stackHeight, 'target height: '+ targetPole.stackHeight);
 
